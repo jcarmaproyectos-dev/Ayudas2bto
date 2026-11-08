@@ -283,4 +283,5 @@ function showCyclotron(){setPlay(false);cyclotronFrame.srcdoc=JSON.parse(documen
 function leaveCyclotron(mode){cyclotronFrame.hidden=true;cyclotronFrame.srcdoc='';document.body.style.overflow='';document.getElementById(mode==='spectrum'?'mode-spectrum':'mode-selector').click();document.getElementById('mode-cyclotron').focus();}
 document.getElementById('mode-cyclotron').onclick=e=>{e.preventDefault();showCyclotron()};
 window.addEventListener('message',e=>{if(e.source===cyclotronFrame.contentWindow&&e.data?.type==='ionlab-mode'&&['selector','spectrum'].includes(e.data.mode))leaveCyclotron(e.data.mode)});
+if(window.location.hash==="#cyclotron")showCyclotron();
 </script></body></html>
